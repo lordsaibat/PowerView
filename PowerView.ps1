@@ -3209,10 +3209,10 @@ A custom PSObject with LDAP hashtable properties translated.
                 else {
                     $ObjectProperties[$_] = [datetime]::fromfiletime($Properties[$_][0])
                 }
-                elseif ($_ -eq 'userparameters') {
+            }
+            elseif ($_ -eq 'userparameters') {
                     $ObjectProperties[$_] = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($Properties[$_][0]))
                 }
-            }
             elseif ( ($_ -eq 'lastlogon') -or ($_ -eq 'lastlogontimestamp') -or ($_ -eq 'pwdlastset') -or ($_ -eq 'lastlogoff') -or ($_ -eq 'badPasswordTime') ) {
                 # convert timestamps
                 if ($Properties[$_][0] -is [System.MarshalByRefObject]) {
